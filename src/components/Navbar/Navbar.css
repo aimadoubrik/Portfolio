@@ -1,0 +1,132 @@
+
+.navbar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    transition: all 0.3s ease-in-out;
+    z-index: 100;
+    /* blur */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    position: fixed;
+    top: 0;
+}
+.light {
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+.dark {
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.navbar-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+}
+.navbar-logo h3 {
+    color: #fff;
+}
+.navbar-logo h3:hover {
+    color: #00bcd4;
+    transition: all 0.3s ease-in-out;
+    scale: 1;
+    text-shadow: 1px 1px 10px #00bcd4, -1px -1px 10px #00bcd4;
+}
+.navbar-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.navbar-links a {
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 500;
+    position: relative;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.navbar-links a::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: #00bcd4;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease-out;
+}
+
+.navbar-links a:hover {
+    color: #00bcd4;
+}
+
+.navbar-links a:hover::before {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+/* Smooth fade-in animation */
+.navbar {
+    opacity: 0;
+    animation: fadeIn 1s ease-in forwards;
+}
+.left {
+    opacity: 0;
+    animation: fadeIn 1s 0.5s ease-in forwards;
+}
+
+.left a {
+    color: #00bcd4;
+    text-decoration: none;
+    transition: color 0.3s;
+    font-size: 1.5rem;
+    margin-right: 1rem;
+}
+
+.left a:hover {
+    color: #fff;
+}
+
+.left .theme{
+    opacity: 0;
+    color: #e2e2e2;
+    animation: fadeIn 1s 1s ease-in forwards;
+}
+
+.left .theme:hover {
+    color: #02515c;
+    transition: color 0.3s;
+    cursor: pointer;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .navbar {
+        padding: 1rem 2rem;
+        
+    }
+    .navbar-links {
+        display: none;
+    }
+}
